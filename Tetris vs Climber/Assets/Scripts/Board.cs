@@ -48,11 +48,14 @@ public class Board : MonoBehaviour
         if (IsValidPosition(activePiece, spawnPosition)) {
             Set(activePiece);
         } else {
-            GameOver();
+            GameOver(2);
         }
     }
 
-    public void GameOver()
+    // All logic for ending the game. Who won is passed in as the argument.
+    // winner = 1: Tetris player won
+    // winner = 2: Climber won
+    public void GameOver(int winner)
     {
         tilemap.ClearAllTiles();
 
@@ -120,8 +123,14 @@ public class Board : MonoBehaviour
                 row++;
             }
         }
-
-        if (climber.transform.position.y > topRowCleared)
+        
+        // Kill climber if within the lines cleared
+        if ((climber.transform.position.y < topRowCleared + 1) && (climber.transform.position.y > topRowCleared + 1 - linesCleared))
+        {
+            GameOver(1);
+        }
+        // Have climber fall if he is above the top row being cleared
+        else if (climber.transform.position.y > topRowCleared)
         {
             climberController.BeginFall(linesCleared);
         }
