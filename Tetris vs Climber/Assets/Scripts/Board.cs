@@ -10,6 +10,8 @@ public class Board : MonoBehaviour
     public TetrominoData[] tetrominoes;
     public Vector2Int boardSize = new Vector2Int(10, 20);
     public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
+    public GameObject climber;
+    private ClimberController climberController;
 
     public RectInt Bounds
     {
@@ -24,6 +26,7 @@ public class Board : MonoBehaviour
     {
         tilemap = GetComponentInChildren<Tilemap>();
         activePiece = GetComponentInChildren<Piece>();
+        climberController = climber.GetComponent<ClimberController>();
 
         for (int i = 0; i < tetrominoes.Length; i++) {
             tetrominoes[i].Initialize();
@@ -101,6 +104,7 @@ public class Board : MonoBehaviour
     {
         RectInt bounds = Bounds;
         int row = bounds.yMin;
+        int linesCleared = 0;
 
         // Clear from bottom to top
         while (row < bounds.yMax)
@@ -109,6 +113,7 @@ public class Board : MonoBehaviour
             // because the tiles above will fall down when a row is cleared
             if (IsLineFull(row)) {
                 LineClear(row);
+                linesCleared++;
             } else {
                 row++;
             }

@@ -952,6 +952,7 @@ MonoBehaviour:
     tetromino: 6
   boardSize: {x: 10, y: 20}
   spawnPosition: {x: -1, y: 8, z: 0}
+  climber: {fileID: 1749771815}
 --- !u!1 &2144466704
 GameObject:
   m_ObjectHideFlags: 0
