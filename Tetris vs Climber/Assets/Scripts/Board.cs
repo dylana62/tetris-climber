@@ -104,6 +104,7 @@ public class Board : MonoBehaviour
     {
         RectInt bounds = Bounds;
         int row = bounds.yMin;
+        int topRowCleared = 10;
         int linesCleared = 0;
 
         // Clear from bottom to top
@@ -114,9 +115,15 @@ public class Board : MonoBehaviour
             if (IsLineFull(row)) {
                 LineClear(row);
                 linesCleared++;
+                topRowCleared = row;
             } else {
                 row++;
             }
+        }
+
+        if (climber.transform.position.y > topRowCleared)
+        {
+            climberController.BeginFall(linesCleared);
         }
     }
 
