@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClimberController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Board board;
     public float horizSpeed = 1f;
     public float vertSpeed = 0.7f;
     public float fallSpeed = 2f;
@@ -22,7 +23,11 @@ public class ClimberController : MonoBehaviour
             vertIn = Input.GetAxisRaw("Vertical");
         }
         
-        if (Input.GetKeyDown(KeyCode.F)) BeginFall(2);
+        if (this.transform.position.y >= 10)
+        {
+            //this.transform.position.y = -9.5;
+            board.GameOver(2);
+        }
 
     }
 
@@ -47,9 +52,6 @@ public class ClimberController : MonoBehaviour
     // Initiate fall for certain distance. Called by board when lines are cleared
     public void BeginFall(float distance) {
         isFalling = true;
-
         fallPos = new Vector2(this.transform.position.x, this.transform.position.y - distance);
-        Debug.Log(fallPos);
-
     }
 }
