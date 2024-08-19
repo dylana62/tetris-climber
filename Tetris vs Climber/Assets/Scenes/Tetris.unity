@@ -938,19 +938,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tetrominoes:
-  - tile: {fileID: 11400000, guid: aa44b5216a5f39e4881c5323564afe81, type: 2}
+  - tile: {fileID: 11400000, guid: e603dd6cd63651b46bd6a6d8fda9c62c, type: 2}
     tetromino: 0
-  - tile: {fileID: 11400000, guid: f6c4109fd0d185b419e5e665b07c42f0, type: 2}
+  - tile: {fileID: 11400000, guid: ee8e03f033df89445b882c64fd47849a, type: 2}
     tetromino: 1
-  - tile: {fileID: 11400000, guid: 89eae29ecf56ea14c8b3927213a00066, type: 2}
+  - tile: {fileID: 11400000, guid: 4e8e622ef89d972479041f86cbc4547a, type: 2}
     tetromino: 2
-  - tile: {fileID: 11400000, guid: 66df2645ff909154b9c8f7c006a6af32, type: 2}
+  - tile: {fileID: 11400000, guid: e36741e3334971b4f88acd7584b6cea9, type: 2}
     tetromino: 3
-  - tile: {fileID: 11400000, guid: ae5c5dcd9d2744248ba2beb6b8dab80f, type: 2}
+  - tile: {fileID: 11400000, guid: 043fd7b614578594b98eb46e658584d4, type: 2}
     tetromino: 4
-  - tile: {fileID: 11400000, guid: 8316c87896e7b6448a324d8a66e43174, type: 2}
+  - tile: {fileID: 11400000, guid: 8c00453fadc838a41989f05abd83f06b, type: 2}
     tetromino: 5
-  - tile: {fileID: 11400000, guid: be0a34e2a842ae742b4fa8541a5f9fcf, type: 2}
+  - tile: {fileID: 11400000, guid: 3a0eae84b46dc20458b87cb4b4304ebd, type: 2}
     tetromino: 6
   boardSize: {x: 10, y: 20}
   spawnPosition: {x: -1, y: 8, z: 0}
