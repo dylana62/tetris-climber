@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ClimberController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Board board;
+    [SerializeField] Tile skullBlock;
     public float horizSpeed = 1f;
     public float vertSpeed = 0.7f;
     public float fallSpeed = 2f;
@@ -14,10 +16,20 @@ public class ClimberController : MonoBehaviour
     float vertIn;
     bool isFalling;
     Vector2 fallPos;
+    Vector3Int gridPos;
+    
 
     // Update is called once per frame
     void Update()
     {
+        // Check if player is on the same tile as a skull tile
+        gridPos = new Vector3Int((int)Mathf.Floor(this.transform.position.x), (int)Mathf.Floor(this.transform.position.y), 0);
+        var tilemapTile = board.tilemap.GetTile(gridPos);
+        //Debug.Log(tilemapTile);
+        if (tilemapTile == skullBlock) {
+            board.GameOver(1);
+        }
+
         if (!isFalling) {
             horizIn = Input.GetAxisRaw("Horizontal");
             vertIn = Input.GetAxisRaw("Vertical");
