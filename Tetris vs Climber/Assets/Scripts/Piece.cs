@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Piece : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Piece : MonoBehaviour
     public float stepDelay = 1f;
     public float moveDelay = 0.1f;
     public float lockDelay = 0.5f;
+    [SerializeField] Tile skullBlock;
 
     private float stepTime;
     private float moveTime;
@@ -18,6 +20,13 @@ public class Piece : MonoBehaviour
 
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
+        // See if this block should be a skull block
+        int random = Random.Range(0, 7);
+        if (random == 0)
+        {
+            data.tile = skullBlock;
+        }
+
         this.data = data;
         this.board = board;
         this.position = position;
