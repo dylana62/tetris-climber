@@ -8,6 +8,7 @@ public class GameSFX : MonoBehaviour
     public AudioClip move;
     public AudioClip hardDrop;
     public AudioClip lockPiece;
+    public AudioClip explosion;
 
     public void PlaySFX(AudioClip clip) {
         src.PlayOneShot(clip);

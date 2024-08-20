@@ -950,6 +950,7 @@ MonoBehaviour:
   move: {fileID: 8300000, guid: ab42c81305941f6439fad3221b992886, type: 3}
   hardDrop: {fileID: 8300000, guid: b1e3393f68127da4082dc2d2416935b8, type: 3}
   lockPiece: {fileID: 8300000, guid: e57f9f883f00cbf429598d18c61fecdf, type: 3}
+  explosion: {fileID: 8300000, guid: 51f8571d13ebe0e4794ae80b1c0ceabc, type: 3}
 --- !u!4 &1632360407
 Transform:
   m_ObjectHideFlags: 0

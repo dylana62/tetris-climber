@@ -61,8 +61,16 @@ public class Board : MonoBehaviour
     {
         tilemap.ClearAllTiles();
 
-        if (winner == 1) Debug.Log("Tetris player wins");
-        else Debug.Log("Climber wins");
+        if (winner == 1) 
+        {
+            Debug.Log("Tetris player wins");
+            gameSFX.PlaySFX(gameSFX.explosion);
+        }
+        else 
+        {
+            Debug.Log("Climber wins");
+            
+        }
 
         // Do anything else you want on game over here..
     }
