@@ -83,6 +83,7 @@ public class Board : MonoBehaviour
             climberController.enabled = false;
             activePiece.enabled = false;
             climberAnim.SetBool("IsDead", true);
+            //climberAnim.SetBool("IsMoving", false);
         }
         else 
         {
@@ -93,6 +94,7 @@ public class Board : MonoBehaviour
             climberController.enabled = false;
             activePiece.enabled = false;
             crustyAnim.SetBool("TetrisLost", true);
+            climberAnim.SetBool("ReachTop", true);
         }
 
         // Do anything else you want on game over here..

@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class ClimberController : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] Board board;
     [SerializeField] Tile skullBlock;
     public Animator climberAnim;
@@ -45,9 +45,10 @@ public class ClimberController : MonoBehaviour
         else if (horizIn == 1 && vertIn == 0) climberAnim.SetBool("MovingRight", true);
         else if (horizIn == -1 && vertIn == 0) climberAnim.SetBool("MovingLeft", true);
         
-        if (this.transform.position.y >= 10)
+        if (this.transform.position.y >= 11)
         {
-            //this.transform.position.y = -9.5;
+            //this.transform.position.x = 1;
+            rb.velocity = new Vector2(0f, 0f);
             board.GameOver(2);
         }
 
