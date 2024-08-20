@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 2923d267d7a0fe44e97eb3e3426a451c
   - enabled: 1
+    path: Assets/Scenes/Rules.unity
+    guid: 9a952c1fe02a5aa4c886d7d8983abb4b
+  - enabled: 1
     path: Assets/Scenes/Tetris.unity
     guid: 97b904d46080d2c40aeee9ac12a2446e
   m_configObjects: {}

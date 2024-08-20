@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Piece : MonoBehaviour
 {
@@ -11,13 +12,27 @@ public class Piece : MonoBehaviour
     public float stepDelay = 1f;
     public float moveDelay = 0.1f;
     public float lockDelay = 0.5f;
+    [SerializeField] Tile skullBlock;
 
     private float stepTime;
     private float moveTime;
     private float lockTime;
+    GameSFX gameSFX;
+
+    public void Awake() 
+    {
+        gameSFX = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameSFX>();
+    }
 
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
+        // See if this block should be a skull block
+        int random = Random.Range(0, 7);
+        if (random == 0)
+        {
+            data.tile = skullBlock;
+        }
+
         this.data = data;
         this.board = board;
         this.position = position;
@@ -47,13 +62,16 @@ public class Piece : MonoBehaviour
         // Handle rotation
         if (Input.GetKeyDown(KeyCode.Q)) {
             Rotate(-1);
+            gameSFX.PlaySFX(gameSFX.move);
         } else if (Input.GetKeyDown(KeyCode.E)) {
             Rotate(1);
+            gameSFX.PlaySFX(gameSFX.move);
         }
 
         // Handle hard drop
         if (Input.GetKeyDown(KeyCode.Space)) {
             HardDrop();
+            gameSFX.PlaySFX(gameSFX.hardDrop);
         }
 
         // Allow the player to hold movement keys but only after a move delay
@@ -115,6 +133,7 @@ public class Piece : MonoBehaviour
     {
         board.Set(this);
         board.ClearLines();
+        gameSFX.PlaySFX(gameSFX.lockPiece);
         board.SpawnPiece();
     }
 
@@ -132,6 +151,7 @@ public class Piece : MonoBehaviour
             position = newPosition;
             moveTime = Time.time + moveDelay;
             lockTime = 0f; // reset
+            gameSFX.PlaySFX(gameSFX.move);
         }
 
         return valid;

@@ -14,4 +14,14 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void GoToTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
+    public void GoToRules()
+    {
+        SceneManager.LoadScene("Rules");
+    }
 }
