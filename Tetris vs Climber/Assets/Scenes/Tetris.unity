@@ -1870,6 +1870,7 @@ MonoBehaviour:
   hardDrop: {fileID: 8300000, guid: b1e3393f68127da4082dc2d2416935b8, type: 3}
   lockPiece: {fileID: 8300000, guid: e57f9f883f00cbf429598d18c61fecdf, type: 3}
   explosion: {fileID: 8300000, guid: 51f8571d13ebe0e4794ae80b1c0ceabc, type: 3}
+  punch: {fileID: 8300000, guid: 282a3f32385feb24fa3568da60d470cd, type: 3}
 --- !u!4 &1632360407
 Transform:
   m_ObjectHideFlags: 0
@@ -1982,7 +1983,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1749771818
 MonoBehaviour:
   m_ObjectHideFlags: 0

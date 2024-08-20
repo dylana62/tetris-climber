@@ -88,6 +88,7 @@ public class Board : MonoBehaviour
         else 
         {
             Debug.Log("Climber wins");
+            gameSFX.PlaySFX(gameSFX.punch);
             climberUI.SetActive(true);
             restartButton.SetActive(true);
             titleButton.SetActive(true);
