@@ -10,7 +10,7 @@ public class Piece : MonoBehaviour
     public int rotationIndex { get; private set; }
 
     public float stepDelay = 1f;
-    public float speedUpDelay = 20f;
+    public float speedUpDelay = 15f;
     public float moveDelay = 0.1f;
     public float lockDelay = 0.5f;
     [SerializeField] Tile skullBlock;
@@ -66,6 +66,7 @@ public class Piece : MonoBehaviour
         if (speedUpTime >= speedUpDelay)
         {
             stepDelay *= 0.8f;
+            speedUpTime = 0f;
         }
 
         // Handle rotation
