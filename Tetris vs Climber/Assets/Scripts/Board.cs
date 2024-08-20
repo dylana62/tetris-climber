@@ -18,6 +18,7 @@ public class Board : MonoBehaviour
     public GameObject climberUI;
     public GameObject restartButton;
     public GameObject titleButton;
+    public Animator crustyAnim;
 
     public RectInt Bounds
     {
@@ -89,6 +90,7 @@ public class Board : MonoBehaviour
             titleButton.SetActive(true);
             climberController.enabled = false;
             activePiece.enabled = false;
+            crustyAnim.SetBool("TetrisLost", true);
         }
 
         // Do anything else you want on game over here..
