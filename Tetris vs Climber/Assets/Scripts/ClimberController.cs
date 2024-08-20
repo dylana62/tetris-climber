@@ -8,6 +8,7 @@ public class ClimberController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Board board;
     [SerializeField] Tile skullBlock;
+    public Animator climberAnim;
     public float horizSpeed = 1f;
     public float vertSpeed = 0.7f;
     public float fallSpeed = 2f;
@@ -34,6 +35,15 @@ public class ClimberController : MonoBehaviour
             horizIn = Input.GetAxisRaw("Horizontal");
             vertIn = Input.GetAxisRaw("Vertical");
         }
+
+        // Animation logic
+        climberAnim.SetBool("IsMoving", false);
+        climberAnim.SetBool("MovingLeft", false);
+        climberAnim.SetBool("MovingRight", false);
+
+        if (vertIn != 0) climberAnim.SetBool("IsMoving", true);
+        else if (horizIn == 1 && vertIn == 0) climberAnim.SetBool("MovingRight", true);
+        else if (horizIn == -1 && vertIn == 0) climberAnim.SetBool("MovingLeft", true);
         
         if (this.transform.position.y >= 10)
         {

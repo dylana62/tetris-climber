@@ -19,6 +19,7 @@ public class Board : MonoBehaviour
     public GameObject restartButton;
     public GameObject titleButton;
     public Animator crustyAnim;
+    public Animator climberAnim;
 
     public RectInt Bounds
     {
@@ -81,6 +82,7 @@ public class Board : MonoBehaviour
             titleButton.SetActive(true);
             climberController.enabled = false;
             activePiece.enabled = false;
+            climberAnim.SetBool("IsDead", true);
         }
         else 
         {
