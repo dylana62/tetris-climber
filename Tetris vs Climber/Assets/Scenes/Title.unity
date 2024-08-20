@@ -825,6 +825,8 @@ GameObject:
   - component: {fileID: 549681287}
   - component: {fileID: 549681288}
   - component: {fileID: 549681289}
+  - component: {fileID: 549681291}
+  - component: {fileID: 549681290}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -853,7 +855,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549681288
 MonoBehaviour:
@@ -881,6 +883,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   src: {fileID: 1154774391}
   buttonClip: {fileID: 8300000, guid: 7c55793925cae1748b5a954465f0fed0, type: 3}
+--- !u!114 &549681290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549681286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: c41bada25b578394e9f7d21c1c358b57, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &549681291
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549681286}
+  m_CullTransparentMesh: 1
 --- !u!1 &683663678
 GameObject:
   m_ObjectHideFlags: 0
