@@ -9,7 +9,6 @@ public class MenuSFX : MonoBehaviour
 
     public void ButtonSound()
     {
-        src.clip = buttonClip;
-        src.Play();
+        src.PlayOneShot(buttonClip);
     }
 }
