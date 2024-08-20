@@ -95,6 +95,7 @@ public class Board : MonoBehaviour
             activePiece.enabled = false;
             crustyAnim.SetBool("TetrisLost", true);
             climberAnim.SetBool("ReachTop", true);
+            climber.transform.position = new Vector3(1f, 11.5f, 0f);
         }
 
         // Do anything else you want on game over here..

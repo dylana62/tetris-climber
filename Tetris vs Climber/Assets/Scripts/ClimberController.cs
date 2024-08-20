@@ -57,7 +57,10 @@ public class ClimberController : MonoBehaviour
     void FixedUpdate()
     {
         if (!isFalling) {
-            rb.velocity = new Vector2(horizIn * horizSpeed, vertIn * vertSpeed);
+            if (vertIn == -1)
+                rb.velocity = new Vector2(horizIn * horizSpeed, vertIn * horizSpeed);
+            else
+                rb.velocity = new Vector2(horizIn * horizSpeed, vertIn * vertSpeed);
         }
         // Logic for if player is falling
         else {

@@ -27,7 +27,7 @@ public class Piece : MonoBehaviour
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
         // See if this block should be a skull block
-        int random = Random.Range(0, 7);
+        int random = Random.Range(0, 4);
         if (random == 0)
         {
             data.tile = skullBlock;
