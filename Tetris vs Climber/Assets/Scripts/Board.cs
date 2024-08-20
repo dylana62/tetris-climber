@@ -12,6 +12,7 @@ public class Board : MonoBehaviour
     public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
     public GameObject climber;
     private ClimberController climberController;
+    GameSFX gameSFX;
 
     public RectInt Bounds
     {
@@ -27,6 +28,7 @@ public class Board : MonoBehaviour
         tilemap = GetComponentInChildren<Tilemap>();
         activePiece = GetComponentInChildren<Piece>();
         climberController = climber.GetComponent<ClimberController>();
+        gameSFX = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameSFX>();
 
         for (int i = 0; i < tetrominoes.Length; i++) {
             tetrominoes[i].Initialize();

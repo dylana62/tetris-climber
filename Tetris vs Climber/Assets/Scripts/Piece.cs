@@ -17,6 +17,12 @@ public class Piece : MonoBehaviour
     private float stepTime;
     private float moveTime;
     private float lockTime;
+    GameSFX gameSFX;
+
+    public void Awake() 
+    {
+        gameSFX = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameSFX>();
+    }
 
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
     {
@@ -56,13 +62,16 @@ public class Piece : MonoBehaviour
         // Handle rotation
         if (Input.GetKeyDown(KeyCode.Q)) {
             Rotate(-1);
+            gameSFX.PlaySFX(gameSFX.move);
         } else if (Input.GetKeyDown(KeyCode.E)) {
             Rotate(1);
+            gameSFX.PlaySFX(gameSFX.move);
         }
 
         // Handle hard drop
         if (Input.GetKeyDown(KeyCode.Space)) {
             HardDrop();
+            gameSFX.PlaySFX(gameSFX.hardDrop);
         }
 
         // Allow the player to hold movement keys but only after a move delay
@@ -124,6 +133,7 @@ public class Piece : MonoBehaviour
     {
         board.Set(this);
         board.ClearLines();
+        gameSFX.PlaySFX(gameSFX.lockPiece);
         board.SpawnPiece();
     }
 
@@ -141,6 +151,7 @@ public class Piece : MonoBehaviour
             position = newPosition;
             moveTime = Time.time + moveDelay;
             lockTime = 0f; // reset
+            gameSFX.PlaySFX(gameSFX.move);
         }
 
         return valid;
