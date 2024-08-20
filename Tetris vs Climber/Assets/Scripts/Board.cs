@@ -13,6 +13,11 @@ public class Board : MonoBehaviour
     public GameObject climber;
     private ClimberController climberController;
     GameSFX gameSFX;
+    
+    public GameObject tetrisUI;
+    public GameObject climberUI;
+    public GameObject restartButton;
+    public GameObject titleButton;
 
     public RectInt Bounds
     {
@@ -29,6 +34,11 @@ public class Board : MonoBehaviour
         activePiece = GetComponentInChildren<Piece>();
         climberController = climber.GetComponent<ClimberController>();
         gameSFX = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameSFX>();
+
+        // tetrisUI = GameObject.Find("Tetris wins");
+        // climberUI = GameObject.Find("Climber wins");
+        // restartButton = GameObject.Find("Restart button");
+        // titleButton = GameObject.Find("Title button");
 
         for (int i = 0; i < tetrominoes.Length; i++) {
             tetrominoes[i].Initialize();
@@ -65,11 +75,20 @@ public class Board : MonoBehaviour
         {
             Debug.Log("Tetris player wins");
             gameSFX.PlaySFX(gameSFX.explosion);
+            tetrisUI.SetActive(true);
+            restartButton.SetActive(true);
+            titleButton.SetActive(true);
+            climberController.enabled = false;
+            activePiece.enabled = false;
         }
         else 
         {
             Debug.Log("Climber wins");
-            
+            climberUI.SetActive(true);
+            restartButton.SetActive(true);
+            titleButton.SetActive(true);
+            climberController.enabled = false;
+            activePiece.enabled = false;
         }
 
         // Do anything else you want on game over here..
