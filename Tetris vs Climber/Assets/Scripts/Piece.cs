@@ -10,11 +10,13 @@ public class Piece : MonoBehaviour
     public int rotationIndex { get; private set; }
 
     public float stepDelay = 1f;
+    public float speedUpDelay = 20f;
     public float moveDelay = 0.1f;
     public float lockDelay = 0.5f;
     [SerializeField] Tile skullBlock;
 
     private float stepTime;
+    private float speedUpTime;
     private float moveTime;
     private float lockTime;
     GameSFX gameSFX;
@@ -22,6 +24,7 @@ public class Piece : MonoBehaviour
     public void Awake() 
     {
         gameSFX = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameSFX>();
+        speedUpTime = 0f;
     }
 
     public void Initialize(Board board, Vector3Int position, TetrominoData data)
@@ -58,6 +61,12 @@ public class Piece : MonoBehaviour
         // We use a timer to allow the player to make adjustments to the piece
         // before it locks in place
         lockTime += Time.deltaTime;
+
+        speedUpTime += Time.deltaTime;
+        if (speedUpTime >= speedUpDelay)
+        {
+            stepDelay *= 0.8f;
+        }
 
         // Handle rotation
         if (Input.GetKeyDown(KeyCode.Q)) {
